@@ -1,0 +1,4 @@
+name = "TomoIO"
+uuid = "e7aa3edd-bae4-46e3-8fa4-dbb1e2ac218c"
+repo = "https://github.com/JuliaTomo/TomoIO.jl"
+version = "0.1.0"
