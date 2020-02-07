@@ -13,7 +13,7 @@ function load_mrc(fname::String)
         if ntype == 0
             dtype = UInt8
         elseif ntype == 1
-            dtype = UInt16
+            dtype = Int16
         elseif ntype == 2
             dtype = Float32
         elseif ntype == 6
