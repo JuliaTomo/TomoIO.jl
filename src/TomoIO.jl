@@ -1,8 +1,11 @@
 module TomoIO
 
-include("io/rec.jl")
+using FileIO
 
-export load_rec
+include("io/rec.jl")
+include("io/ali.jl")
+
+export load_rec, load_ali, load_mrc
 
 
 end

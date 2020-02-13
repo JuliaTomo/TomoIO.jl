@@ -1,4 +1,8 @@
-"load rec file"
+"load mrc file"
+
+# function load(io::Stream{format"MRC"})
+#     print(io)
+# end
 
 function load_mrc(fname::String)
 
@@ -57,4 +61,10 @@ function load_mrc(fname::String)
         println("for FEI conversion, we need to rotate 90 degree, but we didn't support yet.")
     end
     return proj, meta
+end
+
+
+
+function load_ali(fname::String)
+    return load_mrc(fname)
 end

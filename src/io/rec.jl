@@ -1,3 +1,7 @@
+function load(io::Stream{format"MRC"})
+    println(io)
+end
+
 "load rec file"
 
 function load_rec(fname::String)
