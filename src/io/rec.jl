@@ -3,9 +3,8 @@ function load(io::Stream{format"MRC"})
 end
 
 "load rec file"
-
 function load_rec(fname::String)
-    open(fname) do io
+    io = open(fname)
         header = reinterpret(Int32, read(io, 16))
         nx, ny, nz, ntype = header[1], header[2], header[3], header[4]
         
@@ -31,6 +30,9 @@ function load_rec(fname::String)
         img_ = Array{dtype}(reinterpret(dtype, read(io, nx*ny*nz*sizeof(dtype))) )
         img = reshape(img_, Int(nx), Int(ny), Int(nz))
 
-        println("for FEI conversion, we need to rotate 90 degree, but we didn't support yet.")
-    end
+        for z=1:nz
+            img[:,:,z] .= rotr90(view(img, :, :, z))
+        end
+    close(io)
+    return img
 end
